@@ -18,6 +18,10 @@ gromacs:prepare:
   # Always clone the default version for this branch, master in this case
   script:
     - export SOURCEBRANCH=master
+    - if [[ ! -z $GROMACSSOURCEBRANCH ]] ; then
+      export SOURCEBRANCH=$GROMACSSOURCEBRANCH ;
+      echo "Using $SOURCEBRANCH instead of default" ;
+      fi
     - export CHECKOUTCOMMIT=FETCH_HEAD
     - if [[ ! -z $GROMACSSOURCECOMMIT ]] ; then
       export CHECKOUTCOMMIT=$GROMACSSOURCECOMMIT ;
