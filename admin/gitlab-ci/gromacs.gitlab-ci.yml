@@ -300,6 +300,7 @@ gromacs:gcc-7:test:
     - .rules:always
   needs:
     - job: gromacs:gcc-7:build
+    - job: gromacs:prepare
 
 gromacs:gcc-7-simd-sse41:test:
   extends:
@@ -308,6 +309,7 @@ gromacs:gcc-7-simd-sse41:test:
     - .rules:always
   needs:
     - job: gromacs:gcc-7-simd-sse41:build
+    - job: gromacs:prepare
 
 gromacs:gcc-7-double:test:
   extends:
@@ -318,6 +320,7 @@ gromacs:gcc-7-double:test:
     REGRESSIONTEST_DOUBLE: "-double"
   needs:
     - job: gromacs:gcc-7-double:build
+    - job: gromacs:prepare
 
 gromacs:gcc-8:test:
   extends:
@@ -326,6 +329,7 @@ gromacs:gcc-8:test:
     - .rules:always
   needs:
     - job: gromacs:gcc-8:build
+    - job: gromacs:prepare
 
 gromacs:gcc-8-cuda-10.2:test:
   extends:
@@ -343,6 +347,7 @@ gromacs:gcc-8-cuda-10.2:test:
   # TODO: Enable GMX_PYTHON_PACKAGE when dependencies are in Docker image.
   needs:
     - job: gromacs:gcc-8-cuda-10.2:build
+    - job: gromacs:prepare
 
 gromacs:clang-6:test:
   extends:
@@ -353,6 +358,7 @@ gromacs:clang-6:test:
     REGRESSIONTEST_OMP_RANK_NUMBER: 0
   needs:
     - job: gromacs:clang-6:build
+    - job: gromacs:prepare
 
 gromacs:clang-7:test:
   extends:
@@ -361,6 +367,7 @@ gromacs:clang-7:test:
     - .rules:always
   needs:
     - job: gromacs:clang-7:build
+    - job: gromacs:prepare
 
 gromacs:clang-8:test:
   extends:
@@ -369,4 +376,5 @@ gromacs:clang-8:test:
     - .rules:always
   needs:
     - job: gromacs:clang-8:build
+    - job: gromacs:prepare
 
