@@ -21,6 +21,7 @@ gromacs:prepare:
     - export CHECKOUTCOMMIT=FETCH_HEAD
     - if [[ ! -z $GROMACSSOURCECOMMIT ]] ; then
       export CHECKOUTCOMMIT=$GROMACSSOURCECOMMIT ;
+      echo "Using $CHECKOUTCOMMIT instead of head of $SOURCEBRANCH" ;
       fi
     - if [[ ! -d gromacs ]] ; then
         mkdir gromacs ;
