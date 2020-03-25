@@ -9,7 +9,7 @@ gromacs:prepare:
     - .rules:always
   cache: {}
   image: biophysics/gcc-gromacs
-  stage: configure-build
+  stage: pre-build
 
   variables:
     KUBERNETES_CPU_LIMIT: 1

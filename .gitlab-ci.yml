@@ -1,6 +1,8 @@
 # CI is organized into stages so that if early stages fail
 # the later ones are not run.
 stages:
+  # Preparation of GROMACS source
+  - pre-build
   # Configuration for building and testing
   - configure-build
   # Build GROMACS in multiple configurations
