@@ -555,23 +555,23 @@ sub how_should_we_rerun_mdrun {
 sub run_mdrun {
     # Copy all parameters by value, which is useful so we can modify
     # them if we need to, and have the changes local to this test
-    my ($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $gpu_id, $mdprefix, $mdparams, $grompp_mdp) = @_;
+    my ($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $gpu_id, $mdprefix, $mdparams, $grompp_mdp, $input_dir) = @_;
     # Only one of tmpi_ranks or mpi_ranks may be greater than zero, but
     # this is checked for sanity after parsing user input.
 
     # Set up and enforce the maximum number of OpenMP threads to
     # try for this test case
-    if ( -f $max_openmp_threads_filename )
+    if ( -f "$input_dir/$max_openmp_threads_filename" )
     {
-        open my $fh, '<', $max_openmp_threads_filename or die "error opening $max_openmp_threads_filename: $!";
+        open my $fh, '<', "$input_dir/$max_openmp_threads_filename" or die "error opening $input_dir/$max_openmp_threads_filename: $!";
         $omp_threads = do { local $/; <$fh> };
         chomp $omp_threads;
     }
 
     # Set up and enforce the maximum number of MPI ranks to try
     # for this test case
-    if ( -f $max_mpi_ranks_filename ) {
-        open my $fh, '<', $max_mpi_ranks_filename or die "error opening $max_mpi_ranks_filename: $!";
+    if ( -f "$input_dir/$max_mpi_ranks_filename" ) {
+        open my $fh, '<', "$input_dir/$max_mpi_ranks_filename" or die "error opening $input_dir/$max_mpi_ranks_filename: $!";
         my $max_ranks = do { local $/; <$fh> };
         chomp $max_ranks;
         if ($mpi_ranks > 0) {
@@ -809,7 +809,7 @@ sub test_case {
         if ($test_name =~ /-update-cpu/) {
             $update_option = "-update cpu";
         }
-        $nerror = run_mdrun($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $local_gpu_id, $mdprefix, $local_mdparams, $grompp_mdp);
+        $nerror = run_mdrun($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $local_gpu_id, $mdprefix, $local_mdparams, $grompp_mdp, $input_dir);
         if ($nerror != 0) {
             if ($parse_cmd eq '') {
                 push(@error_detail, ("mdrun.out", "md.log"));
@@ -1486,7 +1486,7 @@ sub run_single_ed_system {
     if (!$keep_files) {
       unlink $edofn;  # delete old essential dynamics .xvg output file (if any)
     }
-    $nerror = run_mdrun($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $gpu_id, $mdprefix, "-ei $edifn -eo $edofn", "grompp.mdp");
+    $nerror = run_mdrun($tmpi_ranks, $omp_threads, $mpi_ranks, $npme_ranks, $pme_option, $update_option, $gpu_id, $mdprefix, "-ei $edifn -eo $edofn", "grompp.mdp", $input_dir);
   }
 
   return $nerror;
