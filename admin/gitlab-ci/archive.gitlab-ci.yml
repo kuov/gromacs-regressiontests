@@ -15,7 +15,7 @@ gromacs:prepare:
     KUBERNETES_CPU_LIMIT: 1
     KUBERNETES_CPU_REQUEST: 1
     KUBERNETES_MEMORY_LIMIT: 2Gi
-  # Always clone the default version for this branch, master in this case
+  # Always clone the default version for this branch, release-2020 in this case
   script:
     - export SOURCEBRANCH=release-2020
     - if [[ ! -z $GROMACSSOURCEBRANCH ]] ; then
