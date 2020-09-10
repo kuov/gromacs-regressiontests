@@ -148,7 +148,7 @@ sa-surface-tension       = -1
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
 Tcoupl                   = Nose-Hoover
-nsttcouple               = -1
+nsttcouple               = 3
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
 ; Groups to couple separately
@@ -159,7 +159,7 @@ ref_t                    = 298
 ; pressure coupling     
 Pcoupl                   = MTTK
 Pcoupltype               = isotropic
-nstpcouple               = -1
+nstpcouple               = 3
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
 tau_p                    = 1.67
 compressibility          = 4.5e-5
