@@ -6,15 +6,15 @@
 gromacs:prepare:
   extends:
     - .variables:default
-    - .rules:always
+    - .rules:merge-requests
   cache: {}
-  image: biophysics/gcc-gromacs
+  image: gromacs/ci-docs-llvm-master
   stage: pre-build
 
   variables:
     KUBERNETES_CPU_LIMIT: 1
     KUBERNETES_CPU_REQUEST: 1
-    KUBERNETES_MEMORY_LIMIT: 2Gi
+    KUBERNETES_MEMORY_REQUEST: 2Gi
   # Always clone the default version for this branch, master in this case
   script:
     - export SOURCEBRANCH=master
@@ -34,7 +34,7 @@ gromacs:prepare:
         cd .. ;
       fi
     - cd gromacs
-    - git fetch https://gitlab.com/gromacs/gromacs.git $REGTESTBRANCH
+    - git fetch https://gitlab.com/gromacs/gromacs.git $SOURCEBRANCH
     - git checkout -qf $CHECKOUTCOMMIT
     - git clean -ffdxq
     - git gc

@@ -10,13 +10,10 @@ stages:
   # Unit test each configuration, perhaps in multiple ways
   - test
 
-default:
-  tags:
-    - k8s-scilifelab
-
 include:
   # Mix-in helper job definitions of general utility.
   - local: '/admin/gitlab-ci/global.gitlab-ci.yml'
+  - local: '/admin/gitlab-ci/rules.gitlab-ci.yml'
   # Build and test GROMACS in a variety of environments and configurations.
   # To do: Consider expanding matrix here to improve transparency and reduce file sizes.
   # E.g. '/admin/gitlab-ci/matrix/clang-8.gitlab-ci.yml
