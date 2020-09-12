@@ -144,7 +144,7 @@ sa_surface_tension       = -1
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
 tcoupl                   = nose-hoover
-nsttcouple               = -1
+nsttcouple               = 1
 nh-chain-length          = 1
 ; Groups to couple separately
 tc-grps                  = System
@@ -154,7 +154,7 @@ ref-t                    = 298
 ; Pressure coupling     
 Pcoupl                   = Parrinello-Rahman
 Pcoupltype               = isotropic
-nstpcouple               = -1
+nstpcouple               = 1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)
 tau-p                    = 1
 compressibility          = 4.5e-5
