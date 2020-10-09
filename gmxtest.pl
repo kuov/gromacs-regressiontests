@@ -763,6 +763,11 @@ sub test_case {
                 $line1 =~ s/file .*grompp.mdp/file grompp.mdp/;
                 $line2 =~ s/file .*grompp.mdp/file grompp.mdp/;
 
+                # Hack to avoid useless warnings about statements being on the
+                # wrong line but otherwise being the same
+                $line1 =~ s/grompp.mdp, line.*/grompp.mdp, line/;
+                $line2 =~ s/grompp.mdp, line.*/grompp.mdp, line/;
+
                 if ("$line2" ne "$line1") {
                     $nerror++;
                     # Note that the next line uses the fact that
