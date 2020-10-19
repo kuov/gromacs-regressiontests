@@ -638,7 +638,7 @@ sub run_mdrun {
         # sense, but removing that annotation file and instead adding
         # "supports-nb-on-gpu" to all the other test cases is
         # something that we should fix later.
-        my $test_supports_nb_on_gpu = ! -f "no-nb-gpu-support";
+        my $test_supports_nb_on_gpu = ! -f "$input_dir/no-nb-gpu-support";
         my $nb_task_assignment_opt;
         if($test_supports_nb_on_gpu)
         {
