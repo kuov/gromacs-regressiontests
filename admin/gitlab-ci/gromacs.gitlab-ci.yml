@@ -131,7 +131,7 @@ gromacs:clang-ASAN:configure:
     COMPILER_MAJOR_VERSION: 8
     CMAKE_BUILD_TYPE_OPTIONS: "-DCMAKE_BUILD_TYPE=ASAN"
 
-gromacs:oneapi-2021.1-beta08-opencl:configure:
+gromacs:oneapi-2021.1-beta09-opencl:configure:
   extends:
    - .gromacs:base:configure
    - .use-oneapi:base
@@ -139,7 +139,7 @@ gromacs:oneapi-2021.1-beta08-opencl:configure:
    - .rules:merge-requests
   needs:
     - job: gromacs:prepare
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   variables:
     COMPILER_MAJOR_VERSION: 2021
 
@@ -253,16 +253,16 @@ gromacs:clang-8:build:
     - job: gromacs:clang-8:configure
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:build:
+gromacs:oneapi-2021.1-beta09-opencl:build:
   extends:
     - .variables:default
     - .gromacs:base:build
     - .use-ccache
     - .use-oneapi:base
     - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:configure
+    - job: gromacs:oneapi-2021.1-beta09-opencl:configure
     - job: gromacs:prepare
 
 gromacs:clang-9-mpi:build:
@@ -431,14 +431,14 @@ gromacs:clang-UBSAN:test:
     - job: gromacs:clang-UBSAN:build
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:test:
+gromacs:oneapi-2021.1-beta09-opencl:test:
   extends:
     - .gromacs:base:test
     - .use-oneapi:base
     - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:build
+    - job: gromacs:oneapi-2021.1-beta09-opencl:build
     - job: gromacs:prepare
 
 gromacs:clang-9-mpi:test:
@@ -541,13 +541,13 @@ gromacs:clang-9:regressiontest:
     - job: gromacs:clang-9-mpi:build
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:regressiontest:
+gromacs:oneapi-2021.1-beta09-opencl:regressiontest:
   extends:
     - .gromacs:base:regressiontest
     - .use-oneapi:base
     - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:build
+    - job: gromacs:oneapi-2021.1-beta09-opencl:build
     - job: gromacs:prepare
 
