@@ -95,6 +95,7 @@
     - *if-push-then-never
     - *if-schedule-then-always
     - *if-mr-then-always
+    - allow_failure: true
 
 # Jobs that run for merge requests and schedules for branch `master`,
 # but not when GROMACS_RELEASE is set.
