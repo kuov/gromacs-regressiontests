@@ -131,7 +131,7 @@ gromacs:clang-ASAN:configure:
     COMPILER_MAJOR_VERSION: 8
     CMAKE_BUILD_TYPE_OPTIONS: "-DCMAKE_BUILD_TYPE=ASAN"
 
-gromacs:oneapi-2021.1-beta08-opencl:configure:
+gromacs:oneapi-2021.1-beta09-opencl:configure:
   extends:
    - .gromacs:base:configure
    - .use-oneapi:base
@@ -139,18 +139,9 @@ gromacs:oneapi-2021.1-beta08-opencl:configure:
    - .rules:merge-requests
   needs:
     - job: gromacs:prepare
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   variables:
     COMPILER_MAJOR_VERSION: 2021
-  before_script:
-    # Necessary to override gitlab default 'set -e' which breaks Intel's
-    # setvar.sh script
-    - set +e
-    - source /opt/intel/oneapi/setvars.sh
-    - mkdir -p ccache
-    - export CCACHE_BASEDIR=${PWD}
-    - export CCACHE_DIR=${PWD}/ccache
-    - tar -xf gmx-source.tar.gz
 
 gromacs:clang-UBSAN:configure:
   extends:
@@ -262,26 +253,17 @@ gromacs:clang-8:build:
     - job: gromacs:clang-8:configure
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:build:
+gromacs:oneapi-2021.1-beta09-opencl:build:
   extends:
     - .variables:default
     - .gromacs:base:build
     - .use-ccache
-    - .before_script:default
+    - .use-oneapi:base
     - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:configure
+    - job: gromacs:oneapi-2021.1-beta09-opencl:configure
     - job: gromacs:prepare
-  before_script:
-    # Necessary to override gitlab default 'set -e' which breaks Intel's
-    # setvar.sh script
-    - set +e
-    - source /opt/intel/oneapi/setvars.sh
-    - mkdir -p ccache
-    - export CCACHE_BASEDIR=${PWD}
-    - export CCACHE_DIR=${PWD}/ccache
-    - tar -xf gmx-source.tar.gz
 
 gromacs:clang-9-mpi:build:
   extends:
@@ -313,6 +295,16 @@ gromacs:clang-9-mpi:build:
     - export OMPI_ALLOW_RUN_AS_ROOT=1
     - export OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
     - export ASAN_OPTIONS="check_initialization_order=1:detect_invalid_pointer_pairs=1:strict_init_order=true:strict_string_checks=true:detect_stack_use_after_return=true"
+    # If $GMX_TEST_REQUIRED_NUMBER_OF_DEVICES is not set and we have GPUs, set it
+    - if [ -z $GMX_TEST_REQUIRED_NUMBER_OF_DEVICES ] && [ -n $KUBERNETES_EXTENDED_RESOURCE_NAME ] ; then
+      if grep -q '/gpu$' <<< "$KUBERNETES_EXTENDED_RESOURCE_NAME"; then
+      echo "export GMX_TEST_REQUIRED_NUMBER_OF_DEVICES=\"$KUBERNETES_EXTENDED_RESOURCE_LIMIT\"";
+      export GMX_TEST_REQUIRED_NUMBER_OF_DEVICES="$KUBERNETES_EXTENDED_RESOURCE_LIMIT";
+      fi
+      fi
+    - if grep -qF 'nvidia.com/gpu' <<< "$KUBERNETES_EXTENDED_RESOURCE_NAME"; then
+      nvidia-smi || true;
+      fi
     - ctest -D $CTEST_RUN_MODE --output-on-failure | tee ctestLog.log || true
     - awk '/The following tests FAILED/,/^Errors while running CTest|^$/'
       ctestLog.log | tee ctestErrors.log
@@ -334,6 +326,7 @@ gromacs:clang-9-mpi:build:
 .gromacs:base:regressiontest:
   extends:
     - .variables:default
+    - .rules:merge-requests
   variables:
     KUBERNETES_CPU_LIMIT: 4
     KUBERNETES_CPU_REQUEST: 4
@@ -371,6 +364,7 @@ gromacs:gcc-7:test:
   variables:
     KUBERNETES_EXTENDED_RESOURCE_NAME: "amd.com/gpu"
     KUBERNETES_EXTENDED_RESOURCE_LIMIT: 1
+    LD_LIBRARY_PATH: "/opt/rocm-3.5.0/opencl/lib"
   tags:
     - k8s-scilifelab
   needs:
@@ -438,23 +432,15 @@ gromacs:clang-UBSAN:test:
     - job: gromacs:clang-UBSAN:build
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:test:
+gromacs:oneapi-2021.1-beta09-opencl:test:
   extends:
     - .gromacs:base:test
+    - .use-oneapi:base
     - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:build
+    - job: gromacs:oneapi-2021.1-beta09-opencl:build
     - job: gromacs:prepare
-  before_script:
-    # Necessary to override gitlab default 'set -e' which breaks Intel's
-    # setvar.sh script
-    - set +e
-    - source /opt/intel/oneapi/setvars.sh
-    - mkdir -p ccache
-    - export CCACHE_BASEDIR=${PWD}
-    - export CCACHE_DIR=${PWD}/ccache
-    - tar -xf gmx-source.tar.gz
 
 gromacs:clang-9-mpi:test:
   extends:
@@ -471,7 +457,7 @@ gromacs:clang-9-mpi:test:
 gromacs:gcc-7:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
     - .before_script:default
   image: gromacs/cmake-3.13.0-gcc-7-amdopencl-clfft-openmpi-master
   variables:
@@ -480,6 +466,7 @@ gromacs:gcc-7:regressiontest:
     REGRESSIONTEST_PME_RANK_NUMBER: 0
     REGRESSIONTEST_TOTAL_RANK_NUMBER: 2
     REGRESSIONTEST_OMP_RANK_NUMBER: 1
+    LD_LIBRARY_PATH: "/opt/rocm-3.5.0/opencl/lib"
   tags:
     - k8s-scilifelab
   needs:
@@ -489,7 +476,7 @@ gromacs:gcc-7:regressiontest:
 gromacs:gcc-8-cuda-11.0:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
     - .before_script:default
   image: gromacs/cmake-3.15.7-gcc-8-cuda-11.0-nvidiaopencl-clfft-openmpi-master
   variables:
@@ -507,7 +494,7 @@ gromacs:gcc-8-cuda-11.0:regressiontest:
 gromacs:clang-8:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
     - .before_script:default
   image: gromacs/cmake-3.15.7-llvm-8-intelopencl-openmpi:2020
   tags:
@@ -519,7 +506,7 @@ gromacs:clang-8:regressiontest:
 gromacs:clang-TSAN:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
     - .before_script:default
   image: gromacs/cmake-3.13.0-llvm-8-tsan-master
   tags:
@@ -532,7 +519,7 @@ gromacs:clang-ASAN:regressiontest:
   extends:
     - .gromacs:base:regressiontest
     - .use-clang:base
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
   image: gromacs/cmake-3.13.0-llvm-8-tsan-master
   tags:
     - k8s-scilifelab
@@ -543,7 +530,7 @@ gromacs:clang-ASAN:regressiontest:
 gromacs:clang-9:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
+    - .rules:merge-requests-allow-failure
     - .before_script:default
   image: gromacs/cmake-3.15.7-llvm-9-openmpi-master
   variables:
@@ -555,21 +542,13 @@ gromacs:clang-9:regressiontest:
     - job: gromacs:clang-9-mpi:build
     - job: gromacs:prepare
 
-gromacs:oneapi-2021.1-beta08-opencl:regressiontest:
+gromacs:oneapi-2021.1-beta09-opencl:regressiontest:
   extends:
     - .gromacs:base:regressiontest
-    - .rules:merge-requests
-  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta08-master
+    - .use-oneapi:base
+    - .rules:merge-requests-allow-failure
+  image: gromacs/cmake-3.17.2-oneapi-2021.1-beta09-master
   needs:
-    - job: gromacs:oneapi-2021.1-beta08-opencl:build
+    - job: gromacs:oneapi-2021.1-beta09-opencl:build
     - job: gromacs:prepare
-  before_script:
-    # Necessary to override gitlab default 'set -e' which breaks Intel's
-    # setvar.sh script
-    - set +e
-    - source /opt/intel/oneapi/setvars.sh
-    - mkdir -p ccache
-    - export CCACHE_BASEDIR=${PWD}
-    - export CCACHE_DIR=${PWD}/ccache
-    - tar -xf gmx-source.tar.gz
 
