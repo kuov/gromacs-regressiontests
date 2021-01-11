@@ -68,7 +68,6 @@ my $ref       = '';
 my $mpirun    = 'mpirun';
 my $parse_cmd = '';
 my $gmx_cmd   = "gmx";
-my $mdrun_cmd = "";
 my %progs = ( 'grompp'   => '',
               'mdrun'    => '',
               'pdb2gmx'  => '',
@@ -178,9 +177,6 @@ sub setup_vars()
     }
     foreach my $prog ( keys %progs ) {
         $progs{$prog} = "$gmx_cmd$suffix $prog";
-    }
-    if ( "$mdrun_cmd" ne "" ) {
-        $progs{"mdrun"} = $mdrun_cmd;
     }
     $ref = 'reference_' . ($double > 0 ? 'd' : 's');
 
@@ -1678,7 +1674,6 @@ sub usage {
 Usage: ./gmxtest.pl [ -np N ] [ -nt 1 ] [ -npme n ]
                     [ -verbose ] [ -double ] [ -bluegene ]
                     [ -suffix xxx ] [ -reprod ] [ -mpirun mpirun_command ]
-                    [ -mdrun mdrun_command ]
                     [ -crosscompile ] [ -relaxed ] [ -tight ] [ -mdparam xxx ]
                     [ -keep ]
                     [ $dirs | all ]
@@ -1832,12 +1827,6 @@ for ($kk=0; ($kk <= $#ARGV); $kk++) {
 	if ($kk <$#ARGV) {
 	    $kk++;
 	    $mpirun = $ARGV[$kk];
-	}
-    }
-    elsif ($arg eq '-mdrun' ) {
-	if ($kk <$#ARGV) {
-	    $kk++;
-	    $mdrun_cmd = $ARGV[$kk];
 	}
     }
     elsif ($arg eq '-mdparam' ) {
