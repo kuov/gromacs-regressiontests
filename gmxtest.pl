@@ -994,7 +994,7 @@ sub test_systems {
         # kernels. If GPU kernels were used to run this test case
         # (whether natively or in emulation), run it again in CPU-only
         # mode. This relies on test_case() not clearing up md.log.
-        my $mdrun_ran_nb_on_gpu = ($test_name =~ /nbnxn/ && 0 < find_in_file("^Using .* 8x8 non-bonded kernels", "$dir/md.log"));
+        my $mdrun_ran_nb_on_gpu = (find_in_file("^Using .* 8x8 nonbonded short-range kernels", "$dir/md.log") > 0);
         my $specified_nb_option = ($mdparams =~ /-nb/);
         if ($mdrun_ran_nb_on_gpu) {
             if ($specified_nb_option) {
