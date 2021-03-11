@@ -17,6 +17,6 @@ include:
   # Build and test GROMACS in a variety of environments and configurations.
   # To do: Consider expanding matrix here to improve transparency and reduce file sizes.
   # E.g. '/admin/gitlab-ci/matrix/clang-8.gitlab-ci.yml
-  - local: '/admin/gitlab-ci/gromacs.gitlab-ci.yml'
+  - local: '/admin/gitlab-ci/gromacs.matrix.gitlab-ci.yml'
   # Prepare release archives.
   - local: '/admin/gitlab-ci/archive.gitlab-ci.yml'
