@@ -8,7 +8,7 @@ gromacs:prepare:
     - .variables:default
     - .rules:merge-requests
   cache: {}
-  image: gromacs/ci-docs-llvm-master
+  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-18.04-llvm-7-docs:release-2021
   stage: pre-build
 
   variables:
