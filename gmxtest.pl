@@ -962,12 +962,12 @@ sub test_case {
 }
 
 sub prepare_run_with_different_task_decomposition {
-    my ($test_name, $suffix, $new_dir_ref, $new_input_dir_ref, $new_test_name_ref) = @_;
+    my ($test_name, $suffix, $input_dir, $new_dir_ref, $new_input_dir_ref, $new_test_name_ref) = @_;
 
     # Set up new variables that control where the test
     # case does its I/O
     $$new_dir_ref = "${test_name}/$suffix";
-    $$new_input_dir_ref = "..";
+    $$new_input_dir_ref = "$input_dir";
     $$new_test_name_ref = "${test_name}-${suffix}";
     mkdir $$new_dir_ref;
 
@@ -1006,7 +1006,7 @@ sub test_systems {
                 print("Re-running $test_name using only CPU-based non-bonded kernels\n");
                 # Note that this also forces PME to run on the CPU, where applicable.
                 my ($new_dir, $new_input_dir, $new_test_name);
-                prepare_run_with_different_task_decomposition($test_name, "nb-cpu", \$new_dir, \$new_input_dir, \$new_test_name);
+                prepare_run_with_different_task_decomposition($test_name, "nb-cpu", $input_dir, \$new_dir, \$new_input_dir, \$new_test_name);
                 $$nn++;
                 $$npassed += test_case $new_dir, $new_input_dir, $new_test_name;
             }
@@ -1028,7 +1028,7 @@ sub test_systems {
                 print("Re-running $test_name using CPU-based PME\n");
 
                 my ($new_dir, $new_input_dir, $new_test_name);
-                prepare_run_with_different_task_decomposition($test_name, "pme-cpu", \$new_dir, \$new_input_dir, \$new_test_name);
+                prepare_run_with_different_task_decomposition($test_name, "pme-cpu", $input_dir, \$new_dir, \$new_input_dir, \$new_test_name);
                 $$nn++;
                 $$npassed += test_case $new_dir, $new_input_dir, $new_test_name;
             }
@@ -1048,7 +1048,7 @@ sub test_systems {
                 print("Re-running $test_name using CPU-based update\n");
 
                 my ($new_dir, $new_input_dir, $new_test_name);
-                prepare_run_with_different_task_decomposition($test_name, "update-cpu", \$new_dir, \$new_input_dir, \$new_test_name);
+                prepare_run_with_different_task_decomposition($test_name, "update-cpu", $input_dir, \$new_dir, \$new_input_dir, \$new_test_name);
                 $$nn++;
                 $$npassed += test_case $new_dir, $new_input_dir, $new_test_name;
             }
