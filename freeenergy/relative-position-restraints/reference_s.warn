@@ -9,6 +9,11 @@ WARNING 2 [file posre.itp, line 5]:
   specified explicitly in state A, but not B - copying A to B
 
 WARNING 3 [file ./grompp.mdp]:
+  You are not using center of mass motion removal (mdp option comm-mode),
+  numerical rounding errors can lead to build up of kinetic energy of the
+  center of mass
+
+WARNING 4 [file ./grompp.mdp]:
   You are using pressure coupling with absolute position restraints, this
   will give artifacts. Use the refcoord_scaling option.
 
