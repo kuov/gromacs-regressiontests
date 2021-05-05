@@ -561,12 +561,16 @@ sub run_mdrun {
 
     # Set up and enforce the maximum number of OpenMP threads to
     # try for this test case
-    if ( -f "$input_dir/$max_openmp_threads_filename" )
-    {
+    my $max_omp_threads = undef;
+    if ( -f "$input_dir/$max_openmp_threads_filename" ) {
         open my $fh, '<', "$input_dir/$max_openmp_threads_filename" or die "error opening $input_dir/$max_openmp_threads_filename: $!";
-        $omp_threads = do { local $/; <$fh> };
-        chomp $omp_threads;
+        $max_omp_threads = do { local $/; <$fh> };
+        chomp $max_omp_threads;
     }
+    else {
+        $max_omp_threads = 64;
+    }
+    $omp_threads = ($omp_threads < $max_omp_threads) ? $omp_threads : $max_omp_threads;
 
     # Set up and enforce the maximum number of MPI ranks to try
     # for this test case
