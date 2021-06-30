@@ -10,47 +10,47 @@
 #   Features: GPU update (regression tests with dual GPU)
 #   Scope: configure, build, unit tests, regression tests
 # Test implementation choices (free to change as needed):
-#   OS: Ubuntu 18.04
+#   OS: Ubuntu 20.04
 #   Build type: Debug
 #   Compiler: GCC 7
-#   GPU: CUDA 10.2
+#   GPU: CUDA 11.0
 #   SIMD: SSE 4.1
 #   FFT: FFTW3
 #   Parallelism nt/ntomp: 4/2 (unit tests)
 #   Parallelism nt/ntomp: 2/1 (regression tests)
 #   Parallelism nt/ntomp: 4/1 (regression tests with dual GPU)
 
-gromacs:gcc-7-cuda-10.2:configure:
+gromacs:gcc-7-cuda-11.0:configure:
   extends:
     - .gromacs:base:configure
     - .use-gcc:base
     - .use-cuda
     - .rules:merge-requests
-  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-18.04-gcc-7-cuda-10.2
+  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-20.04-gcc-7-cuda-11.0
   variables:
     CMAKE: /usr/local/cmake-3.17.2/bin/cmake
     CMAKE_SIMD_OPTIONS: "-DGMX_SIMD=SSE4.1"
     COMPILER_MAJOR_VERSION: 7
 
-gromacs:gcc-7-cuda-10.2:build:
+gromacs:gcc-7-cuda-11.0:build:
   extends:
     - .variables:default
     - .gromacs:base:build
     - .before_script:default
     - .use-ccache
     - .rules:merge-requests
-  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-18.04-gcc-7-cuda-10.2
+  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-20.04-gcc-7-cuda-11.0
   variables:
     CMAKE: /usr/local/cmake-3.17.2/bin/cmake
   needs:
-    - job: gromacs:gcc-7-cuda-10.2:configure
+    - job: gromacs:gcc-7-cuda-11.0:configure
     - job: gromacs:prepare
 
-gromacs:gcc-7-cuda-10.2:regressiontest:
+gromacs:gcc-7-cuda-11.0:regressiontest:
   extends:
     - .gromacs:base:regressiontest
     - .rules:merge-requests-allow-failure
-  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-18.04-gcc-7-cuda-10.2
+  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-20.04-gcc-7-cuda-11.0
   variables:
     CMAKE: /usr/local/cmake-3.17.2/bin/cmake
     KUBERNETES_EXTENDED_RESOURCE_NAME: "nvidia.com/gpu"
@@ -61,14 +61,14 @@ gromacs:gcc-7-cuda-10.2:regressiontest:
   tags:
     - k8s-scilifelab
   needs:
-    - job: gromacs:gcc-7-cuda-10.2:build
+    - job: gromacs:gcc-7-cuda-11.0:build
     - job: gromacs:prepare
 
-gromacs:gcc-7-cuda-10.2:regressiontest-gpucommupd-tMPI:
+gromacs:gcc-7-cuda-11.0:regressiontest-gpucommupd-tMPI:
   extends:
     - .gromacs:base:regressiontest
     - .rules:merge-requests-allow-failure
-  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-18.04-gcc-7-cuda-10.2
+  image: ${CI_REGISTRY}/gromacs/gromacs/ci-ubuntu-20.04-gcc-7-cuda-11.0
   variables:
     CMAKE: /usr/local/cmake-3.17.2/bin/cmake
     KUBERNETES_EXTENDED_RESOURCE_NAME: "nvidia.com/gpu"
@@ -82,7 +82,7 @@ gromacs:gcc-7-cuda-10.2:regressiontest-gpucommupd-tMPI:
   tags:
     - k8s-scilifelab
   needs:
-    - job: gromacs:gcc-7-cuda-10.2:build
+    - job: gromacs:gcc-7-cuda-11.0:build
     - job: gromacs:prepare
   artifacts:
     paths:
