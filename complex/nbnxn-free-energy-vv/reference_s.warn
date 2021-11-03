@@ -1,4 +1,4 @@
-WARNING 1 [file ./grompp.mdp, line 351]:
+WARNING 1 [file /home/mabraham/git/regressiontests/complex/nbnxn-free-energy-vv/grompp.mdp, line 327]:
   You are using soft-core interactions while the Van der Waals interactions
   are not decoupled (note that the sc-coul option is only active when using
   lambda states). Although this will not lead to errors, you will need much
