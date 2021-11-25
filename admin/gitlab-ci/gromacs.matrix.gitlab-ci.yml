@@ -158,7 +158,7 @@ include:
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.clang-TSAN.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.gcc-11.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.gcc-7-cuda-11.0.gitlab-ci.yml'
-  - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.gcc-10-cuda-11.2.gitlab-ci.yml'
+  - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.gcc-11-cuda-11.4.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.oneapi-2021.4.0-opencl.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.oneapi-2021.4.0-sycl.gitlab-ci.yml'
 
