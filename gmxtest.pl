@@ -469,12 +469,12 @@ sub how_should_we_rerun_mdrun {
             last;
         }
         elsif ($line =~ "Your choice of .* MPI rank.* and the use of .* total threads .* leads to the use of .* OpenMP threads, whereas we expect the optimum to be with more MPI ranks" ||
-               $line =~ "Your choice of number of MPI ranks and amount of resources results in using" ) {
-            # On large nodes this error needs to be handled.  It can
-            # be converted to a warning with setting the environment
-            # variable GMX_BYPASS_EFFICIENCY_CHECK, but we don't want
-            # anybody testing GROMACS to have to do that, whether with
-            # "make check" or stand-alone.
+               $line =~ "Your choice of number of MPI ranks and amount of resources results in using" ||
+               $line =~ "which is larger than GMX_OPENMP_MAX_THREADS") {
+            # On nodes with large core counts, the default of using
+            # all cores can lead to these errors. They need to be
+            # worked around so that anybody testing GROMACS gets a
+            # successful result unless it's actually broken.
             my $new_omp_threads = 6; # matches nthreads_omp_mpi_target_max in the code
             if ($$omp_threads_ref > 6)
             {
@@ -557,12 +557,16 @@ sub run_mdrun {
 
     # Set up and enforce the maximum number of OpenMP threads to
     # try for this test case
-    if ( -f "$input_dir/$max_openmp_threads_filename" )
-    {
+    my $max_omp_threads = undef;
+    if ( -f "$input_dir/$max_openmp_threads_filename" ) {
         open my $fh, '<', "$input_dir/$max_openmp_threads_filename" or die "error opening $input_dir/$max_openmp_threads_filename: $!";
-        $omp_threads = do { local $/; <$fh> };
-        chomp $omp_threads;
+        $max_omp_threads = do { local $/; <$fh> };
+        chomp $max_omp_threads;
     }
+    else {
+        $max_omp_threads = 64;
+    }
+    $omp_threads = ($omp_threads < $max_omp_threads) ? $omp_threads : $max_omp_threads;
 
     # Set up and enforce the maximum number of MPI ranks to try
     # for this test case
