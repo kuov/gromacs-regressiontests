@@ -79,8 +79,8 @@ pbc                      = xyz
 periodic-molecules       = no
 ; Allowed energy drift due to the Verlet buffer in kJ/mol/ps per atom,
 ; a value of -1 means: use rlist
-verlet-buffer-drift      = 0.005
-; nblist cut-off        
+verlet-buffer-tolerance  = 0.001
+; nblist cut-off (ignored; verlet-buffer-tolerance is used instead)
 rlist                    = 1.0
 ; long-range cut-off for switched potentials
 rlistlong                = -1
