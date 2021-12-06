@@ -161,4 +161,5 @@ include:
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.gcc-11-cuda-11.4.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.oneapi-2021.4.0-opencl.gitlab-ci.yml'
   - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.oneapi-2021.4.0-sycl.gitlab-ci.yml'
+  - local: '/admin/gitlab-ci/gromacs.matrix/gromacs.oneapi-2021.4.0-sycl-nightly.gitlab-ci.yml'
 
