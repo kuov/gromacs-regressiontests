@@ -1,102 +1,84 @@
-Log file opened on Sun May 20 20:12:20 2018
-Host: heat10.jf.intel.com  pid: 49056  rank ID: 0  number of ranks:  1
-          :-) GROMACS - gmx mdrun, 2019-dev-20180518-7d5382b-local (-:
+           :-) GROMACS - gmx mdrun, 2022-dev-20220222-c07b37733d (-:
 
-                            GROMACS is written by:
-     Emile Apol      Rossen Apostolov      Paul Bauer     Herman J.C. Berendsen
-    Par Bjelkmar    Aldert van Buuren   Rudi van Drunen     Anton Feenstra  
-  Gerrit Groenhof    Aleksei Iupinov   Christoph Junghans   Anca Hamuraru   
- Vincent Hindriksen Dimitrios Karkoulis    Peter Kasson        Jiri Kraus    
-  Carsten Kutzner      Per Larsson      Justin A. Lemkul    Viveca Lindahl  
-  Magnus Lundborg   Pieter Meulenhoff    Erik Marklund      Teemu Murtola   
-    Szilard Pall       Sander Pronk      Roland Schulz     Alexey Shvetsov  
-   Michael Shirts     Alfons Sijbers     Peter Tieleman    Teemu Virolainen 
- Christian Wennberg    Maarten Wolf   
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2017, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
+Copyright 1991-2022 The GROMACS Authors.
 GROMACS is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2019-dev-20180518-7d5382b-local
-Executable:   /home/schulzro/gromacs2/gcc48.ref/bin/gmx
-Data prefix:  /home/schulzro/gromacs2 (source tree)
-Working dir:  /home/schulzro/regressiontests/complex/ethyleenglycol
-Command line:
-  gmx mdrun -nb cpu -notunepme
+                         Current GROMACS contributors:
+       Mark Abraham           Andrey Alekseenko           Cathrine Bergh      
+      Christian Blau            Eliane Briand               Kevin Boyd        
+     Oliver Fleetwood         Stefan Fleischmann           Vytas Gapsys       
+       Gaurav Garg           Gilles Gouaillardet            Alan Gray         
+      Victor Holanda           M. Eric Irrgang              Joe Jordan        
+    Christoph Junghans        Prashanth Kanduri           Sebastian Kehl      
+     Sebastian Keller          Carsten Kutzner           Magnus Lundborg      
+       Pascal Merz              Dmitry Morozov             Szilard Pall       
+      Roland Schulz             Michael Shirts         David van der Spoel    
+     Alessandra Villa      Sebastian Wingbermuehle        Artem Zhmurov       
 
-GROMACS version:    2019-dev-20180518-7d5382b-local
-GIT SHA1 hash:      7d5382b97d149caa408082e82f62b5918bba111a
-Branched from:      unknown
-Precision:          single
+                         Previous GROMACS contributors:
+        Emile Apol             Rossen Apostolov           James Barnett       
+  Herman J.C. Berendsen          Par Bjelkmar           Viacheslav Bolnykh    
+    Aldert van Buuren          Carlo Camilloni           Rudi van Drunen      
+      Anton Feenstra           Gerrit Groenhof            Bert de Groot       
+      Anca Hamuraru           Vincent Hindriksen         Aleksei Iupinov      
+   Dimitrios Karkoulis           Peter Kasson               Jiri Kraus        
+       Per Larsson             Justin A. Lemkul           Viveca Lindahl      
+      Erik Marklund           Pieter Meulenhoff           Vedran Miletic      
+      Teemu Murtola              Sander Pronk            Alexey Shvetsov      
+      Alfons Sijbers            Peter Tieleman             Jon Vincent        
+     Teemu Virolainen         Christian Wennberg           Maarten Wolf       
+
+                  Coordinated by the GROMACS project leaders:
+                    Paul Bauer, Berk Hess, and Erik Lindahl
+
+GROMACS:      gmx mdrun, version 2022-dev-20220222-c07b37733d
+Executable:   /home/acmnpv/data/gerrit/2022/install-gcc-8-reference/bin/gmx
+Data prefix:  /home/acmnpv/data/gerrit/2022/install-gcc-8-reference
+Working dir:  /home/acmnpv/data/gerrit/regressiontests/2022/complex/ethyleenglycol
+Process ID:   1150282
+Command line:
+  gmx mdrun -notunepme
+
+GROMACS version:    2022-dev-20220222-c07b37733d
+GIT SHA1 hash:      c07b37733d3ad84cee11a8a7d2b841a734e42ec6
+Precision:          mixed
 Memory model:       64 bit
 MPI library:        none
 OpenMP support:     disabled
 GPU support:        disabled
 SIMD instructions:  NONE
-FFT library:        fftpack (built-in)
-RDTSCP usage:       disabled
+CPU FFT library:    fftpack (built-in)
+GPU FFT library:    none
+RDTSCP usage:       enabled
 TNG support:        enabled
-Hwloc support:      hwloc-1.11.0
+Hwloc support:      disabled
 Tracing support:    disabled
-Built on:           2018-05-21 03:05:40
-Built by:           schulzro@heat10.jf.intel.com [CMAKE]
-Build OS/arch:      Linux 3.10.0-514.26.2.el7.x86_64 x86_64
-Build CPU vendor:   Intel
-Build CPU brand:    Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz
-Build CPU family:   6   Model: 63   Stepping: 2
-Build CPU features: aes apic avx avx2 clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
-C compiler:         /usr/bin/cc GNU 4.8.5
-C compiler flags:       -Wundef -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wpointer-arith -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wno-unknown-pragmas  -O0 -g
-C++ compiler:       /usr/bin/c++ GNU 4.8.5
-C++ compiler flags:     -std=c++11  -Wundef -Wextra -Wno-missing-field-initializers -Wpointer-arith -Wmissing-declarations -Wall -Wno-unknown-pragmas  -O0 -g
+C compiler:         /usr/bin/gcc-8 GNU 8.4.0
+C compiler flags:   -pthread -Wno-unknown-pragmas -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Werror=stringop-truncation -Wno-missing-field-initializers -O0 -g
+C++ compiler:       /usr/bin/g++-8 GNU 8.4.0
+C++ compiler flags: -pthread -Wno-unknown-pragmas -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wstringop-truncation -Wno-missing-field-initializers -O0 -g
 
 
-Running on 1 node with total 36 cores, 72 logical cores
+Running on 1 node with total 4 cores, 8 processing units
 Hardware detected:
   CPU info:
     Vendor: Intel
-    Brand:  Intel(R) Xeon(R) CPU E5-2699 v3 @ 2.30GHz
-    Family: 6   Model: 63   Stepping: 2
+    Brand:  Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+    Family: 6   Model: 142   Stepping: 10
     Features: aes apic avx avx2 clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
-  Hardware topology: Full, with devices
-    Sockets, cores, and logical processors:
-      Socket  0: [   0  36] [   1  37] [   2  38] [   3  39] [   4  40] [   5  41] [   6  42] [   7  43] [   8  44] [   9  45] [  10  46] [  11  47] [  12  48] [  13  49] [  14  50] [  15  51] [  16  52] [  17  53]
-      Socket  1: [  18  54] [  19  55] [  20  56] [  21  57] [  22  58] [  23  59] [  24  60] [  25  61] [  26  62] [  27  63] [  28  64] [  29  65] [  30  66] [  31  67] [  32  68] [  33  69] [  34  70] [  35  71]
-    Numa nodes:
-      Node  0 (68618326016 bytes mem):   0  36   1  37   2  38   3  39   4  40   5  41   6  42   7  43   8  44   9  45  10  46  11  47  12  48  13  49  14  50  15  51  16  52  17  53
-      Node  1 (68719476736 bytes mem):  18  54  19  55  20  56  21  57  22  58  23  59  24  60  25  61  26  62  27  63  28  64  29  65  30  66  31  67  32  68  33  69  34  70  35  71
-      Latency:
-               0     1
-         0  1.00  2.10
-         1  2.10  1.00
-    Caches:
-      L1: 32768 bytes, linesize 64 bytes, assoc. 8, shared 2 ways
-      L2: 262144 bytes, linesize 64 bytes, assoc. 8, shared 2 ways
-      L3: 47185920 bytes, linesize 64 bytes, assoc. 20, shared 36 ways
-    PCI devices:
-      0000:01:00.0  Id: 8086:1521  Class: 0x0200  Numa: 0
-      0000:01:00.1  Id: 8086:1521  Class: 0x0200  Numa: 0
-      0000:00:11.4  Id: 8086:8d62  Class: 0x0106  Numa: 0
-      0000:06:00.0  Id: 102b:0522  Class: 0x0300  Numa: 0
-      0000:00:1f.2  Id: 8086:8d02  Class: 0x0106  Numa: 0
+  Hardware topology: Basic
+    Packages, cores, and logical processors:
+    [indices refer to OS logical processors]
+      Package  0: [   0   4] [   1   5] [   2   6] [   3   7]
+    CPU limit set by OS: -1   Recommended max number of threads: 8
 
-Highest SIMD level requested by all nodes in run: AVX2_256
+Highest SIMD level supported by all nodes in run: AVX2_256
 SIMD instructions selected at compile time:       None
 This program was compiled for different hardware than you are running on,
 which could influence performance.
-The current CPU can measure timings more accurately than the code in
-gmx mdrun was configured to use. This might affect your simulation
-speed as accurate timings are needed for load-balancing.
-Please consider rebuilding gmx mdrun with the GMX_USE_RDTSCP=ON CMake option.
 
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
 M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
@@ -153,6 +135,11 @@ GROMACS: A message-passing parallel molecular dynamics implementation
 Comp. Phys. Comm. 91 (1995) pp. 43-56
 -------- -------- --- Thank You --- -------- --------
 
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.6103835
+-------- -------- --- Thank You --- -------- --------
+
 Input Parameters:
    integrator                     = md
    tinit                          = 0
@@ -160,6 +147,7 @@ Input Parameters:
    nsteps                         = 20
    init-step                      = 0
    simulation-part                = 1
+   mts                            = false
    comm-mode                      = Linear
    nstcomm                        = 1
    bd-fric                        = 0
@@ -181,7 +169,6 @@ Input Parameters:
    compressed-x-precision         = 1000
    cutoff-scheme                  = Verlet
    nstlist                        = 5
-   ns-type                        = Grid
    pbc                            = xyz
    periodic-molecules             = false
    verlet-buffer-tolerance        = 0.005
@@ -206,15 +193,15 @@ Input Parameters:
    ewald-rtol                     = 1e-05
    ewald-rtol-lj                  = 0.001
    lj-pme-comb-rule               = Geometric
-   ewald-geometry                 = 0
+   ewald-geometry                 = 3d
    epsilon-surface                = 0
-   tcoupl                         = Berendsen
+   tcoupl                         = V-rescale
    nsttcouple                     = 5
    nh-chain-length                = 0
    print-nose-hoover-chain-variables = false
    pcoupl                         = No
    pcoupltype                     = Isotropic
-   nstpcouple                     = -1
+   nstpcouple                     = 5
    tau-p                          = 1
    compressibility (3x3):
       compressibility[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
@@ -234,9 +221,6 @@ Input Parameters:
       posres-comB[1]= 0.00000e+00
       posres-comB[2]= 0.00000e+00
    QMMM                           = false
-   QMconstraints                  = 0
-   QMMMscheme                     = 0
-   MMChargeScaleFactor            = 1
 qm-opts:
    ngQM                           = 0
    constraint-algorithm           = Lincs
@@ -300,6 +284,28 @@ qm-opts:
          omega                    = 0
          t0                       = 0
          sigma                    = 0
+     density-guided-simulation:
+       active                     = false
+       group                      = protein
+       similarity-measure         = inner-product
+       atom-spreading-weight      = unity
+       force-constant             = 1e+09
+       gaussian-transform-spreading-width = 0.2
+       gaussian-transform-spreading-range-in-multiples-of-width = 4
+       reference-density-filename = reference.mrc
+       nst                        = 1
+       normalize-densities        = true
+       adaptive-force-scaling     = false
+       adaptive-force-scaling-time-constant = 4
+       shift-vector               = 
+       transformation-matrix      = 
+     qmmm-cp2k:
+       active                     = false
+       qmgroup                    = System
+       qmmethod                   = PBE
+       qmfilenames                = 
+       qmcharge                   = 0
+       qmmultiplicity             = 1
 grpopts:
    nrdf:        3338
    ref-t:         298
@@ -312,12 +318,16 @@ annealing-npoints:           0
 
 Changing nstlist from 5 to 25, rlist from 1.015 to 1.115
 
+When checking whether update groups are usable:
+  Domain decomposition is not active, so there is no need for update groups
+  At least one moleculetype does not conform to the requirements for using update groups
 
 NOTE: GROMACS was compiled without OpenMP and (thread-)MPI support, can only use a single CPU core
 
-Pinning threads with an auto-selected logical core stride of 2
+Pinning threads with an auto-selected logical cpu stride of 2
 System total charge: 0.000
 Potential shift: LJ r^-12: -1.000e+00 r^-6: -1.000e+00, Coulomb -1e+00
+
 
 Using plain C 4x4 nonbonded short-range kernels
 
@@ -331,8 +341,7 @@ At tolerance 0.005 kJ/mol/ps per atom, equivalent classical 1x1 list would be:
   outer list: updated every 25 steps, buffer 0.145 nm, rlist 1.145 nm
   inner list: updated every  4 steps, buffer 0.015 nm, rlist 1.015 nm
 
-Using geometric Lennard-Jones combination rule
-
+Using Geometric Lennard-Jones combination rule
 Removing pbc first time
 
 Initializing LINear Constraint Solver
@@ -345,15 +354,10 @@ J. Comp. Chem. 18 (1997) pp. 1463-1472
 
 The number of constraints is 1285
 
-Intra-simulation communication will occur every 1 steps.
-Center of mass motion removal mode is Linear
-We have the following groups for center of mass motion removal:
-  0:  rest
-
 ++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
-H. J. C. Berendsen, J. P. M. Postma, A. DiNola and J. R. Haak
-Molecular dynamics with coupling to an external bath
-J. Chem. Phys. 81 (1984) pp. 3684-3690
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
 There are: 1542 Atoms
@@ -361,10 +365,14 @@ There are: 1542 Atoms
 Constraining the starting coordinates (step 0)
 
 Constraining the coordinates at t0-dt (step 0)
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
 RMS relative constraint deviation after constraining: 5.63e-07
 Initial temperature: 7.29847e-06 K
 
-Started mdrun on rank 0 Sun May 20 20:12:20 2018
+Started mdrun on rank 0 Wed Feb 23 10:48:12 2022
+
            Step           Time
               0        0.00000
 
@@ -379,16 +387,21 @@ Started mdrun on rank 0 Sun May 20 20:12:20 2018
            Step           Time
              20        0.02000
 
-Writing checkpoint, step 20 at Sun May 20 20:12:20 2018
+Writing checkpoint, step 20 at Wed Feb 23 10:48:12 2022
 
 
    Energies (kJ/mol)
           Angle Ryckaert-Bell.        LJ (SR)   Coulomb (SR)      Potential
-    4.69185e+02    1.15918e+03   -1.74827e+03   -1.40055e+04   -1.41254e+04
+    4.70261e+02    1.24918e+03   -1.73147e+03   -1.41414e+04   -1.41535e+04
     Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
-    4.59599e+02   -1.36658e+04   -1.39363e+04    3.31198e+01   -3.11813e+03
+    9.73074e+02   -1.31804e+04   -1.39217e+04    7.01221e+01   -3.15103e+03
    Constr. rmsd
-    7.09995e-07
+    8.07641e-07
+
+
+Energy conservation over simulation part #1 of length 0.02 ns, time 0 to 0.02 ns
+  Conserved energy drift: 5.82e-01 kJ/mol/ps per atom
+
 
 	<======  ###############  ==>
 	<====  A V E R A G E S  ====>
@@ -398,21 +411,21 @@ Writing checkpoint, step 20 at Sun May 20 20:12:20 2018
 
    Energies (kJ/mol)
           Angle Ryckaert-Bell.        LJ (SR)   Coulomb (SR)      Potential
-    4.16375e+02    1.05934e+03   -1.75703e+03   -1.37531e+04   -1.40344e+04
+    4.90502e+02    1.13849e+03   -1.75200e+03   -1.38606e+04   -1.39836e+04
     Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
-    1.95024e+02   -1.38394e+04   -1.39442e+04    1.40539e+01   -3.14974e+03
+    4.92169e+02   -1.34915e+04   -1.39399e+04    3.54670e+01   -3.11081e+03
    Constr. rmsd
     0.00000e+00
 
    Total Virial (kJ/mol)
-    3.98684e+03   -9.16788e+02    1.34250e+02
-   -9.16787e+02    3.71718e+03    1.78444e+02
-    1.34251e+02    1.78443e+02    4.35028e+03
+    3.98146e+03   -9.08411e+02    9.55252e+00
+   -9.08412e+02    3.78467e+03    1.60094e+02
+    9.55176e+00    1.60094e+02    4.43871e+03
 
    Pressure (bar)
-   -3.12384e+03    7.32972e+02   -1.03285e+02
-    7.32971e+02   -2.91072e+03   -1.43369e+02
-   -1.03286e+02   -1.43368e+02   -3.41467e+03
+   -3.03991e+03    7.29624e+02    9.57279e-01
+    7.29625e+02   -2.88709e+03   -1.28207e+02
+    9.57883e-01   -1.28206e+02   -3.40542e+03
 
 
 	M E G A - F L O P S   A C C O U N T I N G
@@ -435,10 +448,10 @@ Writing checkpoint, step 20 at Sun May 20 20:12:20 2018
  Calc-Ekin                                0.033924           0.916     0.2
  Lincs                                    0.029555           1.773     0.5
  Lincs-Mat                                0.283728           1.135     0.3
- Constraint-V                             0.056540           0.452     0.1
+ Constraint-V                             0.056540           0.509     0.1
  Constraint-Vir                           0.026985           0.648     0.2
 -----------------------------------------------------------------------------
- Total                                                     385.250   100.0
+ Total                                                     385.307   100.0
 -----------------------------------------------------------------------------
 
 
@@ -449,19 +462,19 @@ On 1 MPI rank
  Computing:          Num   Num      Call    Wall time         Giga-Cycles
                      Ranks Threads  Count      (s)         total sum    %
 -----------------------------------------------------------------------------
- Neighbor search        1    1          1       0.016          0.036   1.7
- Force                  1    1         21       0.718          1.648  75.3
- NB X/F buffer ops.     1    1         41       0.001          0.002   0.1
- Write traj.            1    1          2       0.193          0.443  20.2
- Update                 1    1         21       0.002          0.004   0.2
- Constraints            1    1         21       0.018          0.040   1.8
- Rest                                           0.007          0.016   0.7
+ Neighbor search        1    1          1       0.044          0.080   6.6
+ Force                  1    1         21       0.467          0.840  69.1
+ NB X/F buffer ops.     1    1         41       0.002          0.003   0.2
+ Write traj.            1    1          2       0.059          0.107   8.8
+ Update                 1    1         21       0.004          0.007   0.6
+ Constraints            1    1         23       0.108          0.194  15.9
 -----------------------------------------------------------------------------
- Total                                          0.954          2.190 100.0
+ Total                                          0.676          1.216 100.0
 -----------------------------------------------------------------------------
 
                Core t (s)   Wall t (s)        (%)
-       Time:        0.954        0.954      100.0
+       Time:        0.675        0.676       99.9
                  (ns/day)    (hour/ns)
-Performance:        1.902       12.621
-Finished mdrun on rank 0 Sun May 20 20:12:21 2018
+Performance:        2.685        8.939
+Finished mdrun on rank 0 Wed Feb 23 10:48:12 2022
+

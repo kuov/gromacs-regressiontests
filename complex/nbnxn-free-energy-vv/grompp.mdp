@@ -160,7 +160,7 @@ tc-grps                  = system
 tau_t                    = 0.5
 ref_t                    = 298
 ; pressure coupling     
-Pcoupl                   = Berendsen
+pcoupl                   = c-rescale
 Pcoupltype               = Isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)

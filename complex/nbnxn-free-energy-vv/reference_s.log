@@ -1,46 +1,49 @@
-        :-) GROMACS - gmx mdrun, 2022-beta1-dev-20211123-c831d37c81 (-:
+           :-) GROMACS - gmx mdrun, 2022-dev-20220222-c07b37733d (-:
 
-                            GROMACS is written by:
-     Andrey Alekseenko              Emile Apol              Rossen Apostolov     
-         Paul Bauer           Herman J.C. Berendsen           Par Bjelkmar       
-       Christian Blau           Viacheslav Bolnykh             Kevin Boyd        
-     Aldert van Buuren           Rudi van Drunen             Anton Feenstra      
-      Oliver Fleetwood             Gaurav Garg            Gilles Gouaillardet    
-         Alan Gray               Gerrit Groenhof             Anca Hamuraru       
-     Vincent Hindriksen          M. Eric Irrgang            Aleksei Iupinov      
-     Christoph Junghans             Joe Jordan            Dimitrios Karkoulis    
-        Peter Kasson                Jiri Kraus              Carsten Kutzner      
-        Per Larsson              Justin A. Lemkul            Viveca Lindahl      
-      Magnus Lundborg             Erik Marklund               Pascal Merz        
-     Pieter Meulenhoff            Teemu Murtola               Szilard Pall       
-        Sander Pronk              Roland Schulz              Michael Shirts      
-      Alexey Shvetsov             Alfons Sijbers             Peter Tieleman      
-        Jon Vincent              Teemu Virolainen          Christian Wennberg    
-        Maarten Wolf              Artem Zhmurov       
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2019, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
+Copyright 1991-2022 The GROMACS Authors.
 GROMACS is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2022-beta1-dev-20211123-c831d37c81
-Executable:   /home/mabraham/git/review/build-cmake-gcc-reference/install/bin/gmx
-Data prefix:  /home/mabraham/git/review/build-cmake-gcc-reference/install
-Working dir:  /home/mabraham/git/regressiontests/complex/nbnxn-free-energy-vv
-Process ID:   249084
+                         Current GROMACS contributors:
+       Mark Abraham           Andrey Alekseenko           Cathrine Bergh      
+      Christian Blau            Eliane Briand               Kevin Boyd        
+     Oliver Fleetwood         Stefan Fleischmann           Vytas Gapsys       
+       Gaurav Garg           Gilles Gouaillardet            Alan Gray         
+      Victor Holanda           M. Eric Irrgang              Joe Jordan        
+    Christoph Junghans        Prashanth Kanduri           Sebastian Kehl      
+     Sebastian Keller          Carsten Kutzner           Magnus Lundborg      
+       Pascal Merz              Dmitry Morozov             Szilard Pall       
+      Roland Schulz             Michael Shirts         David van der Spoel    
+     Alessandra Villa      Sebastian Wingbermuehle        Artem Zhmurov       
+
+                         Previous GROMACS contributors:
+        Emile Apol             Rossen Apostolov           James Barnett       
+  Herman J.C. Berendsen          Par Bjelkmar           Viacheslav Bolnykh    
+    Aldert van Buuren          Carlo Camilloni           Rudi van Drunen      
+      Anton Feenstra           Gerrit Groenhof            Bert de Groot       
+      Anca Hamuraru           Vincent Hindriksen         Aleksei Iupinov      
+   Dimitrios Karkoulis           Peter Kasson               Jiri Kraus        
+       Per Larsson             Justin A. Lemkul           Viveca Lindahl      
+      Erik Marklund           Pieter Meulenhoff           Vedran Miletic      
+      Teemu Murtola              Sander Pronk            Alexey Shvetsov      
+      Alfons Sijbers            Peter Tieleman             Jon Vincent        
+     Teemu Virolainen         Christian Wennberg           Maarten Wolf       
+
+                  Coordinated by the GROMACS project leaders:
+                    Paul Bauer, Berk Hess, and Erik Lindahl
+
+GROMACS:      gmx mdrun, version 2022-dev-20220222-c07b37733d
+Executable:   /home/acmnpv/data/gerrit/2022/install-gcc-8-reference/bin/gmx
+Data prefix:  /home/acmnpv/data/gerrit/2022/install-gcc-8-reference
+Working dir:  /home/acmnpv/data/gerrit/regressiontests/2022/complex/nbnxn-free-energy-vv
+Process ID:   1150431
 Command line:
   gmx mdrun -notunepme
 
-GROMACS version:    2022-beta1-dev-20211123-c831d37c81
-GIT SHA1 hash:      c831d37c8148f0af60cbc03ed7e35b7f5a20a9ae
+GROMACS version:    2022-dev-20220222-c07b37733d
+GIT SHA1 hash:      c07b37733d3ad84cee11a8a7d2b841a734e42ec6
 Precision:          mixed
 Memory model:       64 bit
 MPI library:        none
@@ -53,22 +56,24 @@ RDTSCP usage:       enabled
 TNG support:        enabled
 Hwloc support:      disabled
 Tracing support:    disabled
-C compiler:         /usr/bin/gcc-7 GNU 7.5.0
-C compiler flags:   -pthread -Wno-unknown-pragmas -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Wno-missing-field-initializers -O0 -g
-C++ compiler:       /usr/bin/g++-7 GNU 7.5.0
-C++ compiler flags: -pthread -Wno-unknown-pragmas -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wno-missing-field-initializers -O0 -g
+C compiler:         /usr/bin/gcc-8 GNU 8.4.0
+C compiler flags:   -pthread -Wno-unknown-pragmas -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Werror=stringop-truncation -Wno-missing-field-initializers -O0 -g
+C++ compiler:       /usr/bin/g++-8 GNU 8.4.0
+C++ compiler flags: -pthread -Wno-unknown-pragmas -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wstringop-truncation -Wno-missing-field-initializers -O0 -g
 
 
-Running on 1 node with total 6 cores, 12 logical cores
+Running on 1 node with total 4 cores, 8 processing units
 Hardware detected:
   CPU info:
     Vendor: Intel
-    Brand:  Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
-    Family: 6   Model: 165   Stepping: 2
+    Brand:  Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+    Family: 6   Model: 142   Stepping: 10
     Features: aes apic avx avx2 clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
   Hardware topology: Basic
-    Sockets, cores, and logical processors:
-      Socket  0: [   0   6] [   1   7] [   2   8] [   3   9] [   4  10] [   5  11]
+    Packages, cores, and logical processors:
+    [indices refer to OS logical processors]
+      Package  0: [   0   4] [   1   5] [   2   6] [   3   7]
+    CPU limit set by OS: -1   Recommended max number of threads: 8
 
 Highest SIMD level supported by all nodes in run: AVX2_256
 SIMD instructions selected at compile time:       None
@@ -130,6 +135,11 @@ GROMACS: A message-passing parallel molecular dynamics implementation
 Comp. Phys. Comm. 91 (1995) pp. 43-56
 -------- -------- --- Thank You --- -------- --------
 
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.6103835
+-------- -------- --- Thank You --- -------- --------
+
 Input Parameters:
    integrator                     = md-vv
    tinit                          = 0
@@ -189,7 +199,7 @@ Input Parameters:
    nsttcouple                     = 10
    nh-chain-length                = 0
    print-nose-hoover-chain-variables = false
-   pcoupl                         = Berendsen
+   pcoupl                         = C-rescale
    pcoupltype                     = Isotropic
    nstpcouple                     = 10
    tau-p                          = 1
@@ -365,7 +375,7 @@ The maximum allowed distance for atom groups involved in interactions is:
 
 NOTE: GROMACS was compiled without OpenMP and (thread-)MPI support, can only use a single CPU core
 
-Pinning threads with an auto-selected logical core stride of 2
+Pinning threads with an auto-selected logical cpu stride of 2
 System total charge, top. A: 0.000 top. B: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
@@ -377,7 +387,7 @@ J. Chem. Phys. 103 (1995) pp. 8577-8592
 
 Using a Gaussian width (1/beta) of 0.288146 nm for Ewald
 Potential shift: LJ r^-12: -3.541e+00 r^-6: -1.882e+00, Ewald -1.111e-05
-Initialized non-bonded Ewald tables, spacing: 8.85e-04 size: 2214
+Initialized non-bonded Coulomb Ewald tables, spacing: 8.85e-04 size: 2214
 
 Long Range LJ corr.: <C6> 2.9770e-04
 
@@ -416,7 +426,7 @@ Center of mass motion removal mode is Linear
 We have the following groups for center of mass motion removal:
   0:  rest
 
-Started mdrun on rank 0 Tue Nov 23 15:49:49 2021
+Started mdrun on rank 0 Wed Feb 23 10:48:24 2022
 
 
 Atom distribution over 1 domains: av 1516 stddev 0 min 1516 max 1516
@@ -440,46 +450,46 @@ Initial temperature: 291.763 K
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    1.24218e+01    8.76934e+00    4.48985e+00    4.52911e+03   -2.58413e+02
+    1.24917e+01    8.76921e+00    4.48944e+00    4.51076e+03   -2.58270e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78459e+04    1.81482e+02   -2.33680e+04    3.65408e+03   -1.97139e+04
+   -2.78268e+04    1.81514e+02   -2.33671e+04    3.65350e+03   -1.97136e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.96999e+04    2.88660e+02   -2.85471e+02   -3.48961e+02    6.73191e+01
+   -1.97010e+04    2.88614e+02   -2.85155e+02   -4.28707e+02    6.74307e+01
 
            Step           Time
               8        0.00400
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    1.26438e+01    9.43992e+00    4.71031e+00    4.53681e+03   -2.56140e+02
+    1.27393e+01    9.43789e+00    4.70871e+00    4.51860e+03   -2.55998e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78229e+04    1.86957e+02   -2.33285e+04    3.63490e+03   -1.96936e+04
+   -2.78038e+04    1.86995e+02   -2.33273e+04    3.63409e+03   -1.96932e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.96796e+04    2.87145e+02   -2.82960e+02   -3.88736e+02    1.29669e+02
+   -1.96807e+04    2.87081e+02   -2.82647e+02   -4.65463e+02    1.29649e+02
 
            Step           Time
              12        0.00600
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    2.06064e+01    1.34026e+01    5.20543e+00    4.55020e+03   -2.53892e+02
+    2.04228e+01    1.34009e+01    5.20292e+00    4.56472e+03   -2.54001e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78162e+04    1.91502e+02   -2.32892e+04    3.60173e+03   -1.96875e+04
+   -2.78307e+04    1.91504e+02   -2.32894e+04    3.60213e+03   -1.96873e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.96493e+04    2.84524e+02   -2.80504e+02   -4.87845e+02    1.70303e+02
+   -1.96478e+04    2.84556e+02   -2.80743e+02   -4.17811e+02    1.70358e+02
 
            Step           Time
              16        0.00800
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    2.76490e+01    1.61623e+01    5.71054e+00    4.56070e+03   -2.51619e+02
+    2.74590e+01    1.61631e+01    5.71050e+00    4.57535e+03   -2.51726e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78208e+04    1.94902e+02   -2.32673e+04    3.61719e+03   -1.96501e+04
+   -2.78352e+04    1.94912e+02   -2.32673e+04    3.61740e+03   -1.96499e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.96119e+04    2.85746e+02   -2.77992e+02   -5.74991e+02    2.01764e+02
+   -1.96104e+04    2.85763e+02   -2.78229e+02   -5.05518e+02    2.01861e+02
 
-Writing checkpoint, step 20 at Tue Nov 23 15:49:49 2021
+Writing checkpoint, step 20 at Wed Feb 23 10:48:25 2022
 
 
            Step           Time
@@ -487,15 +497,15 @@ Writing checkpoint, step 20 at Tue Nov 23 15:49:49 2021
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    2.15748e+01    1.66282e+01    6.16583e+00    4.57079e+03   -2.49346e+02
+    2.15271e+01    1.66271e+01    6.16918e+00    4.58549e+03   -2.49452e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78354e+04    1.97229e+02   -2.32724e+04    3.66520e+03   -1.96072e+04
+   -2.78499e+04    1.97233e+02   -2.32723e+04    3.66535e+03   -1.96070e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.95690e+04    2.89538e+02   -2.75481e+02   -5.41563e+02    2.27864e+02
+   -1.95675e+04    2.89551e+02   -2.75716e+02   -4.77407e+02    2.27991e+02
 
 
 Energy conservation over simulation part #1 of length 0.01 ns, time 0 to 0.01 ns
-  Conserved energy drift: 8.69e+00 kJ/mol/ps per atom
+  Conserved energy drift: 8.79e+00 kJ/mol/ps per atom
 
 	<======  ###############  ==>
 	<====  A V E R A G E S  ====>
@@ -505,24 +515,24 @@ Energy conservation over simulation part #1 of length 0.01 ns, time 0 to 0.01 ns
 
    Energies (kJ/mol)
         G96Bond       G96Angle  Improper Dih.        LJ (SR)  Disper. corr.
-    1.80531e+01    1.29944e+01    5.22889e+00    4.54593e+03   -2.55013e+02
+    1.80105e+01    1.29937e+01    5.22868e+00    4.54715e+03   -2.55020e+02
    Coulomb (SR)   Coul. recip.      Potential    Kinetic En.   Total Energy
-   -2.78351e+04    1.87941e+02   -2.33199e+04    3.64441e+03   -1.96755e+04
+   -2.78359e+04    1.87955e+02   -2.33196e+04    3.64431e+03   -1.96753e+04
   Conserved En.    Temperature Pres. DC (bar) Pressure (bar)    dVremain/dl
-   -1.96517e+04    2.87896e+02   -2.81725e+02   -4.37036e+02    1.16285e+02
+   -1.96514e+04    2.87888e+02   -2.81739e+02   -4.29171e+02    1.16347e+02
 
           Box-X          Box-Y          Box-Z
-    2.46925e+00    2.46925e+00    2.46925e+00
+    2.46922e+00    2.46922e+00    2.46922e+00
 
    Total Virial (kJ/mol)
-    1.59412e+03    6.70303e+01   -4.35680e+02
-    6.48435e+01    1.53023e+03   -2.45116e+02
-   -4.35880e+02   -2.44085e+02    1.11441e+03
+    1.59058e+03    6.67192e+01   -4.35476e+02
+    6.46935e+01    1.52651e+03   -2.45136e+02
+   -4.36146e+02   -2.43961e+02    1.11086e+03
 
    Pressure (bar)
-   -8.86122e+02   -2.64244e+02    9.80392e+02
-   -2.59421e+02   -6.03573e+02    4.45575e+02
-    9.80834e+02    4.43300e+02    1.78586e+02
+   -8.78296e+02   -2.63613e+02    9.79923e+02
+   -2.59145e+02   -5.95496e+02    4.45623e+02
+    9.81399e+02    4.43031e+02    1.86278e+02
 
 
 	M E G A - F L O P S   A C C O U N T I N G
@@ -574,29 +584,29 @@ On 1 MPI rank
  Computing:          Num   Num      Call    Wall time         Giga-Cycles
                      Ranks Threads  Count      (s)         total sum    %
 -----------------------------------------------------------------------------
- Domain decomp.         1    1          1       0.004          0.011   0.5
- Neighbor search        1    1          1       0.022          0.057   2.4
- Force                  1    1         21       0.683          1.771  75.6
- PME mesh               1    1         21       0.115          0.299  12.8
- NB X/F buffer ops.     1    1         41       0.001          0.003   0.1
- Write traj.            1    1          3       0.004          0.011   0.5
- Update                 1    1         42       0.002          0.004   0.2
- Constraints            1    1         44       0.011          0.028   1.2
- Rest                                           0.061          0.159   6.8
+ Domain decomp.         1    1          1       0.012          0.021   1.2
+ Neighbor search        1    1          1       0.043          0.078   4.2
+ Force                  1    1         21       0.691          1.244  67.7
+ PME mesh               1    1         21       0.125          0.225  12.2
+ NB X/F buffer ops.     1    1         41       0.001          0.002   0.1
+ Write traj.            1    1          3       0.006          0.011   0.6
+ Update                 1    1         42       0.002          0.003   0.2
+ Constraints            1    1         44       0.013          0.023   1.3
+ Rest                                           0.129          0.231  12.6
 -----------------------------------------------------------------------------
- Total                                          0.904          2.343 100.0
+ Total                                          1.021          1.838 100.0
 -----------------------------------------------------------------------------
  Breakdown of PME mesh computation
 -----------------------------------------------------------------------------
- PME spread             1    1         42       0.025          0.064   2.7
- PME gather             1    1         42       0.038          0.099   4.2
- PME 3D-FFT             1    1         84       0.029          0.074   3.2
- PME solve Elec         1    1         42       0.023          0.061   2.6
+ PME spread             1    1         42       0.027          0.049   2.7
+ PME gather             1    1         42       0.043          0.077   4.2
+ PME 3D-FFT             1    1         84       0.030          0.054   3.0
+ PME solve Elec         1    1         42       0.024          0.044   2.4
 -----------------------------------------------------------------------------
 
                Core t (s)   Wall t (s)        (%)
-       Time:        0.903        0.904       99.9
+       Time:        1.020        1.021       99.9
                  (ns/day)    (hour/ns)
-Performance:        1.004       23.913
-Finished mdrun on rank 0 Tue Nov 23 15:49:50 2021
+Performance:        0.888       27.015
+Finished mdrun on rank 0 Wed Feb 23 10:48:25 2022
 

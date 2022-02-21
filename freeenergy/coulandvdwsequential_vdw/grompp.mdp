@@ -147,7 +147,7 @@ sa-surface-tension       = -1
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
-tcoupl                   = berendsen
+tcoupl                   = v-rescale
 nsttcouple               = -1
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no
@@ -157,7 +157,7 @@ tc-grps                  = system
 tau_t                    = 1.0
 ref_t                    = 298
 ; pressure coupling     
-Pcoupl                   = no
+pcoupl                   = no
 pcoupltype               = Isotropic
 nstpcouple               = -1
 ; Time constant (ps), compressibility (1/bar) and reference P (bar)

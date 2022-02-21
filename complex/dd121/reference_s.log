@@ -1,46 +1,49 @@
-        :-) GROMACS - gmx mdrun, 2022-beta1-dev-20211123-c831d37c81 (-:
+           :-) GROMACS - gmx mdrun, 2022-dev-20220222-c07b37733d (-:
 
-                            GROMACS is written by:
-     Andrey Alekseenko              Emile Apol              Rossen Apostolov     
-         Paul Bauer           Herman J.C. Berendsen           Par Bjelkmar       
-       Christian Blau           Viacheslav Bolnykh             Kevin Boyd        
-     Aldert van Buuren           Rudi van Drunen             Anton Feenstra      
-      Oliver Fleetwood             Gaurav Garg            Gilles Gouaillardet    
-         Alan Gray               Gerrit Groenhof             Anca Hamuraru       
-     Vincent Hindriksen          M. Eric Irrgang            Aleksei Iupinov      
-     Christoph Junghans             Joe Jordan            Dimitrios Karkoulis    
-        Peter Kasson                Jiri Kraus              Carsten Kutzner      
-        Per Larsson              Justin A. Lemkul            Viveca Lindahl      
-      Magnus Lundborg             Erik Marklund               Pascal Merz        
-     Pieter Meulenhoff            Teemu Murtola               Szilard Pall       
-        Sander Pronk              Roland Schulz              Michael Shirts      
-      Alexey Shvetsov             Alfons Sijbers             Peter Tieleman      
-        Jon Vincent              Teemu Virolainen          Christian Wennberg    
-        Maarten Wolf              Artem Zhmurov       
-                           and the project leaders:
-        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
-
-Copyright (c) 1991-2000, University of Groningen, The Netherlands.
-Copyright (c) 2001-2019, The GROMACS development team at
-Uppsala University, Stockholm University and
-the Royal Institute of Technology, Sweden.
-check out http://www.gromacs.org for more information.
-
+Copyright 1991-2022 The GROMACS Authors.
 GROMACS is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License
 as published by the Free Software Foundation; either version 2.1
 of the License, or (at your option) any later version.
 
-GROMACS:      gmx mdrun, version 2022-beta1-dev-20211123-c831d37c81
-Executable:   /home/mabraham/git/review/build-cmake-gcc-reference/install/bin/gmx
-Data prefix:  /home/mabraham/git/review/build-cmake-gcc-reference/install
-Working dir:  /home/mabraham/git/regressiontests/complex/dd121
-Process ID:   249021
+                         Current GROMACS contributors:
+       Mark Abraham           Andrey Alekseenko           Cathrine Bergh      
+      Christian Blau            Eliane Briand               Kevin Boyd        
+     Oliver Fleetwood         Stefan Fleischmann           Vytas Gapsys       
+       Gaurav Garg           Gilles Gouaillardet            Alan Gray         
+      Victor Holanda           M. Eric Irrgang              Joe Jordan        
+    Christoph Junghans        Prashanth Kanduri           Sebastian Kehl      
+     Sebastian Keller          Carsten Kutzner           Magnus Lundborg      
+       Pascal Merz              Dmitry Morozov             Szilard Pall       
+      Roland Schulz             Michael Shirts         David van der Spoel    
+     Alessandra Villa      Sebastian Wingbermuehle        Artem Zhmurov       
+
+                         Previous GROMACS contributors:
+        Emile Apol             Rossen Apostolov           James Barnett       
+  Herman J.C. Berendsen          Par Bjelkmar           Viacheslav Bolnykh    
+    Aldert van Buuren          Carlo Camilloni           Rudi van Drunen      
+      Anton Feenstra           Gerrit Groenhof            Bert de Groot       
+      Anca Hamuraru           Vincent Hindriksen         Aleksei Iupinov      
+   Dimitrios Karkoulis           Peter Kasson               Jiri Kraus        
+       Per Larsson             Justin A. Lemkul           Viveca Lindahl      
+      Erik Marklund           Pieter Meulenhoff           Vedran Miletic      
+      Teemu Murtola              Sander Pronk            Alexey Shvetsov      
+      Alfons Sijbers            Peter Tieleman             Jon Vincent        
+     Teemu Virolainen         Christian Wennberg           Maarten Wolf       
+
+                  Coordinated by the GROMACS project leaders:
+                    Paul Bauer, Berk Hess, and Erik Lindahl
+
+GROMACS:      gmx mdrun, version 2022-dev-20220222-c07b37733d
+Executable:   /home/acmnpv/data/gerrit/2022/install-gcc-8-reference/bin/gmx
+Data prefix:  /home/acmnpv/data/gerrit/2022/install-gcc-8-reference
+Working dir:  /home/acmnpv/data/gerrit/regressiontests/2022/complex/dd121
+Process ID:   1150192
 Command line:
   gmx mdrun -notunepme
 
-GROMACS version:    2022-beta1-dev-20211123-c831d37c81
-GIT SHA1 hash:      c831d37c8148f0af60cbc03ed7e35b7f5a20a9ae
+GROMACS version:    2022-dev-20220222-c07b37733d
+GIT SHA1 hash:      c07b37733d3ad84cee11a8a7d2b841a734e42ec6
 Precision:          mixed
 Memory model:       64 bit
 MPI library:        none
@@ -53,22 +56,24 @@ RDTSCP usage:       enabled
 TNG support:        enabled
 Hwloc support:      disabled
 Tracing support:    disabled
-C compiler:         /usr/bin/gcc-7 GNU 7.5.0
-C compiler flags:   -pthread -Wno-unknown-pragmas -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Wno-missing-field-initializers -O0 -g
-C++ compiler:       /usr/bin/g++-7 GNU 7.5.0
-C++ compiler flags: -pthread -Wno-unknown-pragmas -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wno-missing-field-initializers -O0 -g
+C compiler:         /usr/bin/gcc-8 GNU 8.4.0
+C compiler flags:   -pthread -Wno-unknown-pragmas -Wall -Wno-unused -Wunused-value -Wunused-parameter -Wextra -Wno-sign-compare -Wpointer-arith -Wundef -Werror=stringop-truncation -Wno-missing-field-initializers -O0 -g
+C++ compiler:       /usr/bin/g++-8 GNU 8.4.0
+C++ compiler flags: -pthread -Wno-unknown-pragmas -Wall -Wextra -Wpointer-arith -Wmissing-declarations -Wundef -Wstringop-truncation -Wno-missing-field-initializers -O0 -g
 
 
-Running on 1 node with total 6 cores, 12 logical cores
+Running on 1 node with total 4 cores, 8 processing units
 Hardware detected:
   CPU info:
     Vendor: Intel
-    Brand:  Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
-    Family: 6   Model: 165   Stepping: 2
+    Brand:  Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
+    Family: 6   Model: 142   Stepping: 10
     Features: aes apic avx avx2 clfsh cmov cx8 cx16 f16c fma htt intel lahf mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
   Hardware topology: Basic
-    Sockets, cores, and logical processors:
-      Socket  0: [   0   6] [   1   7] [   2   8] [   3   9] [   4  10] [   5  11]
+    Packages, cores, and logical processors:
+    [indices refer to OS logical processors]
+      Package  0: [   0   4] [   1   5] [   2   6] [   3   7]
+    CPU limit set by OS: -1   Recommended max number of threads: 8
 
 Highest SIMD level supported by all nodes in run: AVX2_256
 SIMD instructions selected at compile time:       None
@@ -130,6 +135,11 @@ GROMACS: A message-passing parallel molecular dynamics implementation
 Comp. Phys. Comm. 91 (1995) pp. 43-56
 -------- -------- --- Thank You --- -------- --------
 
+
+++++ PLEASE CITE THE DOI FOR THIS VERSION OF GROMACS ++++
+https://doi.org/10.5281/zenodo.6103835
+-------- -------- --- Thank You --- -------- --------
+
 Input Parameters:
    integrator                     = md
    tinit                          = 0
@@ -189,7 +199,7 @@ Input Parameters:
    nsttcouple                     = 10
    nh-chain-length                = 0
    print-nose-hoover-chain-variables = false
-   pcoupl                         = Berendsen
+   pcoupl                         = C-rescale
    pcoupltype                     = Isotropic
    nstpcouple                     = 10
    tau-p                          = 1
@@ -351,7 +361,7 @@ The maximum allowed distance for atoms involved in interactions is:
 
 NOTE: GROMACS was compiled without OpenMP and (thread-)MPI support, can only use a single CPU core
 
-Pinning threads with an auto-selected logical core stride of 2
+Pinning threads with an auto-selected logical cpu stride of 2
 System total charge: 0.000
 Will do PME sum in reciprocal space for electrostatic interactions.
 
@@ -363,7 +373,7 @@ J. Chem. Phys. 103 (1995) pp. 8577-8592
 
 Using a Gaussian width (1/beta) of 0.272138 nm for Ewald
 Potential shift: LJ r^-12: -7.030e+00 r^-6: -2.651e+00, Ewald -1.176e-05
-Initialized non-bonded Ewald tables, spacing: 8.60e-04 size: 990
+Initialized non-bonded Coulomb Ewald tables, spacing: 8.60e-04 size: 990
 
 Generated table with 950 data points for 1-4 COUL.
 Tabscale = 500 points/nm
@@ -418,6 +428,13 @@ Canonical sampling through velocity rescaling
 J. Chem. Phys. 126 (2007) pp. 014101
 -------- -------- --- Thank You --- -------- --------
 
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+M. Bernetti, G. Bussi
+Pressure control using stochastic cell rescaling
+J. Chem. Phys. 153 (2020) pp. 114107
+-------- -------- --- Thank You --- -------- --------
+
 There are: 1759 Atoms
 There are: 30 VSites
 
@@ -429,43 +446,43 @@ Constraining the coordinates at t0-dt (step 0)
 Center of mass motion removal mode is Linear
 We have the following groups for center of mass motion removal:
   0:  rest
-RMS relative constraint deviation after constraining: 0.00e+00
+RMS relative constraint deviation after constraining: 9.99e-07
 Initial temperature: 290.842 K
 
-Started mdrun on rank 0 Tue Nov 23 15:49:38 2021
+Started mdrun on rank 0 Wed Feb 23 10:48:09 2022
 
            Step           Time
               0        0.00000
 
    Energies (kJ/mol)
-  Connect Bonds          Angle    Proper Dih.  Improper Dih.          LJ-14
+  Connect Bonds          Angle    Proper Dih.Periodic Improper Dih.          LJ-14
     0.00000e+00    4.66871e+01    2.11364e+01    1.55309e+00    3.19221e+01
      Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential
     1.31732e+03    3.82300e+03   -2.93489e+04    3.37589e+02   -2.37697e+04
     Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
-    4.56235e+03   -1.92074e+04   -1.92106e+04    3.12574e+02    6.00505e+02
+    4.56235e+03   -1.92074e+04   -1.92188e+04    3.12574e+02    6.00505e+02
    Constr. rmsd
-    0.00000e+00
+    3.00692e-06
 
            Step           Time
              20        0.10000
 
-Writing checkpoint, step 20 at Tue Nov 23 15:49:39 2021
+Writing checkpoint, step 20 at Wed Feb 23 10:48:10 2022
 
 
    Energies (kJ/mol)
-  Connect Bonds          Angle    Proper Dih.  Improper Dih.          LJ-14
-    0.00000e+00    3.11036e+01    2.03269e+01    5.92948e+00    3.59743e+01
+  Connect Bonds          Angle    Proper Dih.Periodic Improper Dih.          LJ-14
+    0.00000e+00    3.26203e+01    2.03035e+01    6.12187e+00    3.57242e+01
      Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential
-    1.32349e+03    3.72621e+03   -2.93221e+04    3.47066e+02   -2.38320e+04
+    1.32295e+03    3.78324e+03   -2.93951e+04    3.46141e+02   -2.38480e+04
     Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
-    4.44634e+03   -1.93856e+04   -1.92034e+04    3.04626e+02    3.48151e+02
+    4.46691e+03   -1.93811e+04   -1.92179e+04    3.06036e+02    5.30895e+02
    Constr. rmsd
-    0.00000e+00
+    1.81651e-06
 
 
 Energy conservation over simulation part #1 of length 0.1 ns, time 0 to 0.1 ns
-  Conserved energy drift: 4.00e-02 kJ/mol/ps per atom
+  Conserved energy drift: 5.28e-03 kJ/mol/ps per atom
 
 
 	<======  ###############  ==>
@@ -475,12 +492,12 @@ Energy conservation over simulation part #1 of length 0.1 ns, time 0 to 0.1 ns
 	Statistics over 21 steps using 1 frames
 
    Energies (kJ/mol)
-  Connect Bonds          Angle    Proper Dih.  Improper Dih.          LJ-14
+  Connect Bonds          Angle    Proper Dih.Periodic Improper Dih.          LJ-14
     0.00000e+00    4.66871e+01    2.11364e+01    1.55309e+00    3.19221e+01
      Coulomb-14        LJ (SR)   Coulomb (SR)   Coul. recip.      Potential
     1.31732e+03    3.82300e+03   -2.93489e+04    3.37589e+02   -2.37697e+04
     Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
-    4.56235e+03   -1.92074e+04   -1.92106e+04    3.12574e+02    6.00505e+02
+    4.56235e+03   -1.92074e+04   -1.92188e+04    3.12574e+02    6.00505e+02
    Constr. rmsd
     0.00000e+00
 
@@ -507,11 +524,11 @@ Energy conservation over simulation part #1 of length 0.1 ns, time 0 to 0.1 ns
 
  Computing:                               M-Number         M-Flops  % Flops
 -----------------------------------------------------------------------------
- Pair Search distance check               1.317426          11.857     2.0
- NxN QSTab Elec. + LJ [F]                 5.746856         235.621    40.5
- NxN QSTab Elec. + LJ [V&F]               0.602296          35.535     6.1
- NxN QSTab Elec. [F]                      5.337944         181.490    31.2
- NxN QSTab Elec. [V&F]                    0.558680          22.906     3.9
+ Pair Search distance check               1.317580          11.858     2.0
+ NxN QSTab Elec. + LJ [F]                 5.741336         235.395    40.5
+ NxN QSTab Elec. + LJ [V&F]               0.603352          35.598     6.1
+ NxN QSTab Elec. [F]                      5.331944         181.286    31.2
+ NxN QSTab Elec. [V&F]                    0.559656          22.946     3.9
  1,4 nonbonded interactions               0.002058           0.185     0.0
  Calc Weights                             0.112707           4.057     0.7
  Spread Q Bspline                         2.404416           4.809     0.8
@@ -537,7 +554,7 @@ Energy conservation over simulation part #1 of length 0.1 ns, time 0 to 0.1 ns
  Virtual Site 3out                        0.000288           0.025     0.0
  Virtual Site 4fdn                        0.000096           0.024     0.0
 -----------------------------------------------------------------------------
- Total                                                     582.059   100.0
+ Total                                                     581.732   100.0
 -----------------------------------------------------------------------------
 
 
@@ -555,31 +572,31 @@ On 1 MPI rank
  Computing:          Num   Num      Call    Wall time         Giga-Cycles
                      Ranks Threads  Count      (s)         total sum    %
 -----------------------------------------------------------------------------
- Domain decomp.         1    1          3       0.014          0.035   1.4
+ Domain decomp.         1    1          3       0.028          0.051   2.4
  Vsite constr.          1    1         21       0.000          0.001   0.0
- Neighbor search        1    1          3       0.059          0.152   6.2
- Force                  1    1         21       0.744          1.928  79.0
- PME mesh               1    1         21       0.092          0.239   9.8
- NB X/F buffer ops.     1    1         39       0.001          0.003   0.1
- Vsite spread           1    1         24       0.001          0.001   0.1
- Write traj.            1    1          2       0.011          0.029   1.2
- Update                 1    1         21       0.003          0.009   0.4
- Constraints            1    1         23       0.012          0.030   1.2
- Rest                                           0.005          0.012   0.5
+ Neighbor search        1    1          3       0.108          0.194   9.1
+ Force                  1    1         21       0.858          1.545  72.1
+ PME mesh               1    1         21       0.119          0.214  10.0
+ NB X/F buffer ops.     1    1         39       0.002          0.003   0.1
+ Vsite spread           1    1         24       0.001          0.002   0.1
+ Write traj.            1    1          2       0.048          0.087   4.1
+ Update                 1    1         21       0.005          0.008   0.4
+ Constraints            1    1         23       0.016          0.028   1.3
+ Rest                                           0.006          0.011   0.5
 -----------------------------------------------------------------------------
- Total                                          0.941          2.440 100.0
+ Total                                          1.191          2.144 100.0
 -----------------------------------------------------------------------------
  Breakdown of PME mesh computation
 -----------------------------------------------------------------------------
- PME spread             1    1         21       0.018          0.046   1.9
- PME gather             1    1         21       0.023          0.061   2.5
- PME 3D-FFT             1    1         42       0.031          0.081   3.3
- PME solve Elec         1    1         21       0.019          0.050   2.0
+ PME spread             1    1         21       0.024          0.044   2.0
+ PME gather             1    1         21       0.030          0.054   2.5
+ PME 3D-FFT             1    1         42       0.040          0.072   3.4
+ PME solve Elec         1    1         21       0.024          0.042   2.0
 -----------------------------------------------------------------------------
 
                Core t (s)   Wall t (s)        (%)
-       Time:        0.941        0.941      100.0
+       Time:        1.191        1.191      100.0
                  (ns/day)    (hour/ns)
-Performance:        9.637        2.490
-Finished mdrun on rank 0 Tue Nov 23 15:49:39 2021
+Performance:        7.616        3.151
+Finished mdrun on rank 0 Wed Feb 23 10:48:10 2022
 

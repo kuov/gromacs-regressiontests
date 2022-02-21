@@ -147,7 +147,7 @@ sa-surface-tension       = -1
 
 ; OPTIONS FOR WEAK COUPLING ALGORITHMS
 ; Temperature coupling  
-Tcoupl                   = yes
+tcoupl                   = v-rescale
 nsttcouple               = 5
 nh-chain-length          = 10
 print-nose-hoover-chain-variables = no

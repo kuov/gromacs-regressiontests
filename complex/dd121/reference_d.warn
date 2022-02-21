@@ -1,7 +1,0 @@
-WARNING 1 [file grompp.mdp]:
-  The Berendsen barostat does not generate any strictly correct ensemble,
-  and should not be used for new production simulations (in our opinion).
-  For isotropic scaling we would recommend the C-rescale barostat that also
-  ensures fast relaxation without oscillations, and for anisotropic scaling
-  you likely want to use the Parrinello-Rahman barostat.
-
