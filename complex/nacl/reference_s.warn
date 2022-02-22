@@ -1,4 +1,16 @@
-WARNING 1 [file ./grompp.mdp]:
+WARNING 1 [file grompp.mdp]:
+  The Berendsen thermostat does not generate the correct kinetic energy
+  distribution, and should not be used for new production simulations (in
+  our opinion). We would recommend the V-rescale thermostat.
+
+WARNING 2 [file grompp.mdp]:
+  The Berendsen barostat does not generate any strictly correct ensemble,
+  and should not be used for new production simulations (in our opinion).
+  For isotropic scaling we would recommend the C-rescale barostat that also
+  ensures fast relaxation without oscillations, and for anisotropic scaling
+  you likely want to use the Parrinello-Rahman barostat.
+
+WARNING 3 [file ./grompp.mdp]:
   For proper integration of the Berendsen thermostat, tau-t (0.1) should be
   at least 5 times larger than nsttcouple*dt (0.025)
 

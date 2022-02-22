@@ -1470,7 +1470,7 @@ sub run_single_ed_system {
   }
 
   # Make the .tpr file
-  $nerror += do_system("$progs{'grompp'} -f $input_dir/grompp.mdp -c $input_dir/conf -r $input_dir/conf -p $input_dir/topol -maxwarn 1 >$grompp_out 2>$grompp_err");
+  $nerror += do_system("$progs{'grompp'} -f $input_dir/grompp.mdp -c $input_dir/conf -r $input_dir/conf -p $input_dir/topol -maxwarn 2 >$grompp_out 2>$grompp_err");
 
   if ($ediArgs) {
       # Make the essential dynamics .edi input file
