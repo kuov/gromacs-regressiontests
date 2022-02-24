@@ -17,7 +17,7 @@ gromacs:prepare:
     KUBERNETES_MEMORY_REQUEST: 2Gi
   # Always clone the default version for this branch, master in this case
   script:
-    - export SOURCEBRANCH=master
+    - export SOURCEBRANCH=release-2022
     - if [[ ! -z $GROMACSSOURCEBRANCH ]] ; then
       export SOURCEBRANCH=$GROMACSSOURCEBRANCH ;
       echo "Using $SOURCEBRANCH instead of default" ;
